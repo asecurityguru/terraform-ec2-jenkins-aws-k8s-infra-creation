@@ -1,0 +1,3 @@
+eksctl create cluster --name test-cluster --version 1.23 --region us-west-2 --nodegroup-name linux-nodes --node-type t2.micro --nodes 1
+
+eksctl delete cluster --region=us-west-2 --name=test-cluster14
