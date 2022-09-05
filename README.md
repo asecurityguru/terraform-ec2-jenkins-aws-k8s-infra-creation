@@ -5,27 +5,22 @@ Helpful Terraform Links:
 - [Resource: aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
 - [Resource: aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
 
-## Step 0: Create a `dev-west-2.tfvars` file from the template
-```
-cp vars/template.tfvars vars/dev-west-2.tfvars
-```
-
-## Step 1: Initialize Terraform
+## Step 0: Initialize Terraform
 ```
 terraform init
 ```
 
-## Step 2: Plan Resources
+## Step 1: Plan Resources
 ```
 terraform plan -var-file="vars/dev-west-2.tfvars"
 ```
 
-## Step 3: Apply Resources
+## Step 2: Apply Resources
 ```
 terraform apply -var-file="vars/dev-west-2.tfvars"
 ```
 
-## Step 4: SSH to instance to get the admin password
+## Step 3: SSH to instance to get the admin password
 ```
 chmod 400 <keypair>
 ssh -i <keypair> ec2-user@<public_dns>
