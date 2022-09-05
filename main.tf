@@ -6,6 +6,18 @@ provider "aws" {
   region = var.aws_region
 }
 
+variable "aws_region" {
+    type = string
+}
+
+variable "vpc_id" {
+    type = string
+}
+
+variable "key_name" {
+    type = string
+}
+
 resource "aws_security_group" "jenkins_sg" {
   name        = "jenkins_sg"
   description = "Allow Jenkins Traffic"
