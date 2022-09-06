@@ -36,7 +36,7 @@ docker system prune  # to delete unused docker images to cleanup memeory on syst
 docker image rm imagename  # to delete a docker image
 
 #create EKS cluster
-eksctl create cluster --name kubernetes-cluster --version 1.23 --region us-west-2 \ --nodegroup-name linux-nodes --node-type t2.xlarge --nodes 2 
+eksctl create cluster --name kubernetes-cluster --version 1.23 --region us-west-2 --nodegroup-name linux-nodes --node-type t2.xlarge --nodes 2 
 
 #delete EKS cluster
 eksctl delete cluster --region=us-west-2 --name=kubernetes-cluster #delete eks cluster
