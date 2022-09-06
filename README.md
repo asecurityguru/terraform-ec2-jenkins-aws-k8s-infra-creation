@@ -34,6 +34,10 @@ kubectl get svc --namespace=test #to get services in a namespace in kubernetes c
 kubectl delete all --all -n test #to delete everything in a namespace in kubernetes cluster
 docker system prune  # to delete unused docker images to cleanup memeory on system 
 docker image rm imagename  # to delete a docker image
-eksctl create cluster --name kubernetes-cluster --version 1.23 --region us-west-2 \ --nodegroup-name linux-nodes --node-type t2.xlarge --nodes 2 #create EKS cluster
+
+#create EKS cluster
+eksctl create cluster --name kubernetes-cluster --version 1.23 --region us-west-2 \ --nodegroup-name linux-nodes --node-type t2.xlarge --nodes 2 
+
+#delete EKS cluster
 eksctl delete cluster --region=us-west-2 --name=kubernetes-cluster #delete eks cluster
 ```
