@@ -25,8 +25,8 @@ terraform apply -var-file="vars/dev-west-2.tfvars"
 chmod 400 <keypair>
 ssh -i <keypair> ec2-user@<public_dns>
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-
-## Some useful commands
+```
+## Some Useful Commands
 ```
 cat /home/ec2-user/.kube/config  #to get context information of kubernetes cluster
 kubectl create namespace test #to create namespace in kubernetes cluster
