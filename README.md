@@ -20,13 +20,13 @@ terraform plan -var-file="vars/dev-west-2.tfvars"
 terraform apply -var-file="vars/dev-west-2.tfvars"
 ```
 
-## Step 3: SSH to instance to get the admin password
+## Step 3: Commands to get the Jenkins admin password
 ```
 chmod 400 <keypair>
 ssh -i <keypair> ec2-user@<public_dns>
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-Some useful commands:
+## Some useful commands:
 cat /home/ec2-user/.kube/config  #to get context information of kubernetes cluster
 kubectl create namespace test #to create namespace in kubernetes cluster
 kubectl get deployments --namespace=test #to get deployments in a namespace in kubernetes cluster
@@ -41,3 +41,7 @@ eksctl create cluster --name kubernetes-cluster --version 1.23 --region us-west-
 #delete EKS cluster
 eksctl delete cluster --region=us-west-2 --name=kubernetes-cluster #delete eks cluster
 ```
+
+## Step 4: Cleanup Terraform Resources
+```
+terraform destroy -var-file="vars/dev-west-2.tfvars"
