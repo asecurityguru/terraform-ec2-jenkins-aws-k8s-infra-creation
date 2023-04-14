@@ -26,7 +26,8 @@ chmod 400 <keypair>
 ssh -i <keypair> ec2-user@<public_dns>
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-## Some useful commands:
+## Some useful commands
+```
 cat /home/ec2-user/.kube/config  #to get context information of kubernetes cluster
 kubectl create namespace test #to create namespace in kubernetes cluster
 kubectl get deployments --namespace=test #to get deployments in a namespace in kubernetes cluster
