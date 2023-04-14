@@ -49,10 +49,10 @@ docker system prune
 #To delete a docker image
 docker image rm imagename  
 
-#create EKS cluster
+#To Create EKS cluster
 eksctl create cluster --name kubernetes-cluster --version 1.23 --region us-west-2 --nodegroup-name linux-nodes --node-type t2.xlarge --nodes 2 
 
-#delete EKS cluster
+#To Delete EKS cluster
 eksctl delete cluster --region=us-west-2 --name=kubernetes-cluster #delete eks cluster
 ```
 
