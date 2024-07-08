@@ -19,7 +19,6 @@ sudo update-alternatives --set java /usr/lib/jvm/java-17-amazon-corretto.x86_64/
 sudo yum install jenkins -y
 sudo sed -i -e 's/Environment="JENKINS_PORT=[0-9]\+"/Environment="JENKINS_PORT=8081"/' /usr/lib/systemd/system/jenkins.service
 sudo systemctl daemon-reload
-sudo yum remove java-22-amazon-corretto-headless -y
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
