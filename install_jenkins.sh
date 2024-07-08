@@ -15,7 +15,7 @@ sudo yum install nodejs npm -y
 sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
-sudo update-alternatives --set -java /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
+sudo update-alternatives --set java /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
 sudo yum install jenkins -y
 sudo sed -i -e 's/Environment="JENKINS_PORT=[0-9]\+"/Environment="JENKINS_PORT=8081"/' /usr/lib/systemd/system/jenkins.service
 sudo systemctl daemon-reload
