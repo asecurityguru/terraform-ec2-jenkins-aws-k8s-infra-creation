@@ -1,4 +1,4 @@
-# AWS Infrastructure Creation using Terraform by [ASecurityGuru](www.asecurityguru.com)
+# AWS Infrastructure Creation using Terraform by [ASecurityGuru](https://www.asecurityguru.com)
 
 ## 📖 Full Tutorial
 
