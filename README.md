@@ -1,5 +1,20 @@
 # AWS Infrastructure Creation using Terraform by A Security Guru
 
+## 📖 Full Tutorial
+
+Step-by-step written guide with security hardening tips on ASecurityGuru:
+[Provision AWS EC2 with Jenkins Using Terraform: A DevSecOps Infrastructure Guide](https://asecurityguru.com/terraform-ec2-jenkins-aws-devsecops/)
+
+## 🎥 Video Walkthrough
+
+Watch the companion video on YouTube:
+[Configure Terraform and Provision AWS EC2 with Jenkins](https://youtu.be/xbdBqTVefOc?si=L5J9YMbIsMrwqZI6)
+
+## 📚 Full Course
+
+Learn the complete DevSecOps pipeline (SonarQube, Trivy, OWASP ZAP, Kubernetes):
+[DevSecOps & DevOps with Jenkins, Kubernetes, Terraform & AWS — Udemy](https://www.udemy.com/course/devsecops-with-terraform-kubernetes-jenkins-aws/)
+
 Helpful Terraform Links:
 - [Terraform Language Documentation](https://www.terraform.io/docs/language/index.html)
 - [Resource: aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
