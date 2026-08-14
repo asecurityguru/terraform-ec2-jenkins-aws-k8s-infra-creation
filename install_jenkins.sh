@@ -8,16 +8,20 @@ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo yum upgrade -y
 #sudo yum install jenkins java-1.8.0-openjdk-devel -y
 #sudo amazon-linux-extras install java-openjdk11
-#Java 17 installed and old Java versions commented out
-sudo dnf install java-17-amazon-corretto-devel -y
+#Java 21 installed (Jenkins now requires Java 21 minimum) and old Java versions commented out
+sudo dnf install java-21-amazon-corretto-devel -y
 sudo yum install git -y
 sudo yum install nodejs npm -y
-sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
-sudo yum install -y apache-maven
-sudo update-alternatives --set java /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
+#Maven now installed from Amazon Linux 2023 repos (old fedorapeople repo is no longer available)
+sudo yum install -y maven
+sudo update-alternatives --set java /usr/lib/jvm/java-21-amazon-corretto.x86_64/bin/java
 sudo yum install jenkins -y
-sudo sed -i -e 's/Environment="JENKINS_PORT=[0-9]\+"/Environment="JENKINS_PORT=8081"/' /usr/lib/systemd/system/jenkins.service
+#Jenkins port set to 8081 via systemd override (newer Jenkins packages ship JENKINS_PORT commented out, so the old sed no longer works)
+sudo mkdir -p /etc/systemd/system/jenkins.service.d
+sudo tee /etc/systemd/system/jenkins.service.d/override.conf <<'EOF'
+[Service]
+Environment="JENKINS_PORT=8081"
+EOF
 sudo systemctl daemon-reload
 sudo systemctl start jenkins
 sudo systemctl status jenkins
@@ -26,10 +30,11 @@ sudo yum install unzip -y
 sudo unzip awscliv2.zip  
 sudo ./aws/install
 #ZAP is installed and can be run as zap.sh
-sudo wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_unix.sh
-sudo chmod +x ZAP_2_14_0_unix.sh 
-sudo ./ZAP_2_14_0_unix.sh -q
-curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
+sudo wget https://github.com/zaproxy/zaproxy/releases/download/v2.17.0/ZAP_2_17_0_unix.sh
+sudo chmod +x ZAP_2_17_0_unix.sh 
+sudo ./ZAP_2_17_0_unix.sh -q
+#kubectl updated to v1.30 to match the EKS cluster version created in the README (old 1.23.7 is end-of-life and version-skewed)
+curl -o kubectl -L https://dl.k8s.io/release/v1.30.4/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
 sudo cp kubectl /usr/local/bin/
